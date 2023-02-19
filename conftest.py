@@ -3,18 +3,18 @@ from datetime import datetime
 import allure
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
+
+desiredCapabilities = {
+    "browserName": "chrome"
+}
 
 
 @pytest.fixture(scope="function")
 def driver():
-	options = Options()
-	options.add_argument("--no-sandbox")
-	driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), chrome_options=options)
-	driver.maximize_window()
-	yield driver
-	attach = driver.get_screenshot_as_png()
-	allure.attach(attach, name=f"Screenshot {datetime.now()}", attachment_type=allure.attachment_type.PNG)
-	driver.quit()
+    driver = webdriver.Remote(command_executor='http://192.168.1.55:4444/wd/hub',
+                              desired_capabilities=desiredCapabilities)
+    driver.maximize_window()
+    yield driver
+    attach = driver.get_screenshot_as_png()
+    allure.attach(attach, name=f"Screenshot {datetime.now()}", attachment_type=allure.attachment_type.PNG)
+    driver.quit()
