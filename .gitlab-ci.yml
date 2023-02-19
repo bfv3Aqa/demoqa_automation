@@ -1,9 +1,32 @@
 stages:
+    - build
     - test
+    - report
+
+
+build image:
+    stage: build
+    script:
+        - docker build -t image-test:$CI_COMMIT_SHORT_SHA --no-cache .
+    when: manual
+
 
 test run:
     stage: test
+    needs: 
+        - build image
     script:
-        - docker build -t image-test --no-cache .
-        - docker run --name test --rm image-test:latest
+        - docker run --name test --rm image-test::$CI_COMMIT_SHORT_SHA
+    after_script:
+        - docker rmi image-test:$CI_COMMIT_SHORT_SHA
+    allow_failure: true
+    when: manual
+
+
+create report:
+    stage: report
+    needs:
+        - test run
+    script:
+        echo "report has been created"
     when: manual
