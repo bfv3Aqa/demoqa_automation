@@ -5,5 +5,5 @@ test run:
     stage: test
     script:
         - docker build -t image-test --no-cache .
-        - docker run --name --rm test image-test
+        - docker run --name --rm test image-test:latest
     when: manual
