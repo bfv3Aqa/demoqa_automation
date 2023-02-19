@@ -1,5 +1,4 @@
-
-stage:
+stages:
     - test
 
 test run:
