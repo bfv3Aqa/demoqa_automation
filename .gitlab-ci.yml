@@ -1,0 +1,9 @@
+stages:
+    - test
+
+test run:
+    stage: test
+    script:
+        - docker build -t image-test --no-cache .
+        - docker run --name test --rm image-test:latest
+    when: manual
