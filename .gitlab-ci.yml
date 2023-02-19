@@ -11,6 +11,7 @@ build image:
     when: manual
 
 
+
 test run:
     stage: test
     needs: 
@@ -20,7 +21,7 @@ test run:
     after_script:
         - docker rmi image-test:$CI_COMMIT_SHORT_SHA
     allow_failure: true
-    when: manual
+
 
 
 create report:
@@ -29,4 +30,3 @@ create report:
         - test run
     script:
         echo "report has been created"
-    when: manual
