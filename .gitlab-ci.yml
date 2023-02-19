@@ -17,7 +17,11 @@ test run:
     needs: 
         - build image
     script:
-        - docker run --name test --rm image-test:$CI_COMMIT_SHORT_SHA
+        - docker run --name test 
+                    --rm image-test:$CI_COMMIT_SHORT_SHA
+                    -e MAIN_HOST=$MAIN_HOST
+                    -v /data/allure-results:/app/allure-results
+
     after_script:
         - docker rmi image-test:$CI_COMMIT_SHORT_SHA
     allow_failure: true
