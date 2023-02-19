@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip3 install -r requirements.txt
 
-CMD ["pytest", "tests/widgets_test.py"]
+CMD pytest --allure-dir=/app/allure-results test/elements_test.py
