@@ -17,6 +17,7 @@ test run:
     needs: 
         - build image
     script:
+        - rm -rf /data/allure-results/*
         - docker run --rm
                     --name test 
                     -e MAIN_HOST=$MAIN_HOST
@@ -34,4 +35,4 @@ create report:
     needs:
         - test run
     script:
-        echo "report has been created"
+        - curl "http://${MAIN_HOST}:${ALLURE_PORT}/allure-docker-service/generate-report"
