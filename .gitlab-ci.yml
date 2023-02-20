@@ -21,7 +21,7 @@ test run:
         - docker run --rm
                     --name test 
                     -e MAIN_HOST=$MAIN_HOST
-                    -e MAIN_HOST=$MAIN_PORT
+                    -e MAIN_PORT=$MAIN_PORT
                     -v /data/allure-results:/app/allure-results
                     image-test:$CI_COMMIT_SHORT_SHA
 
