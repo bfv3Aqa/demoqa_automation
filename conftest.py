@@ -23,7 +23,7 @@ def driver(request):
     }
 
     driver = webdriver.Remote(
-        command_executor="http://localhost:4444/wd/hub", desired_capabilities=capabilities)
+        command_executor=f"http://{executor}:4444/wd/hub", desired_capabilities=capabilities)
 
     yield driver
     attach = driver.get_screenshot_as_png()
