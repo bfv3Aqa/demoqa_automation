@@ -25,7 +25,7 @@ def generated_person():
 
 
 def generated_file():
-	path = f'/home/andrei/Desktop/automation_qa_course/files/filetest{random.randint(0, 999)}.txt'
+	path = f'/home/andrei/Desktop/code/devops-sandbox/files/filetest{random.randint(0, 999)}.txt'
 	file = open(path, 'w+')
 	file.write(f'Hello World {random.randint(0, 999)}')
 	file.close()

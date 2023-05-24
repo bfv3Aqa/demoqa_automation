@@ -15,6 +15,7 @@ class FormPage(BasePage):
 	def fill_form_fields(self):
 		person = next(generated_person())
 		file_name, path = generated_file()
+		self.remove_footer()
 		self.element_is_visible(self.locators.FIRST_NAME).send_keys(person.first_name)
 		self.element_is_visible(self.locators.LAST_NAME).send_keys(person.last_name)
 		self.element_is_visible(self.locators.EMAIL).send_keys(person.email)

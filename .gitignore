@@ -1,2 +1,4 @@
 .gitlab-ci.yml
-.pytest_cache
+.pytest_cache/
+.idea/
+allure-results/
