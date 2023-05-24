@@ -1,1 +1,0 @@
-{"name": "Check delete person from WebTable", "status": "passed", "start": 1684920177820, "stop": 1684920192295, "uuid": "fd1cc8a4-6544-449c-b4a7-760a3d11e472", "testCaseId": "fc62677eedbc0dd01571b684593bf1d8", "fullName": "tests.elements_test.TestWebTables#test_web_table_delete_person"}
