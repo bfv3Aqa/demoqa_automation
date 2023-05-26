@@ -8,7 +8,7 @@ from selenium import webdriver
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
     parser.addoption("--bversion", action="store", default="113.0")
-    parser.addoption("--executor", action="store", default="localhost")
+    parser.addoption("--executor", action="store", default="192.168.1.55")
 
 
 @pytest.fixture(scope="function")
